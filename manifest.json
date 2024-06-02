@@ -1,0 +1,29 @@
+{
+    "manifest_version": 3,
+    "name": "Chat Voice",
+    "version": "1.0",
+    "description": "Plays a sound when a specific keyword appears in the live stream chat.",
+    "permissions": [
+      "activeTab",
+      "scripting",
+      "storage"
+    ],
+    "background": {
+      "service_worker": "background.js"
+    },
+    "content_scripts": [
+      {
+        "matches": [
+            "https://kick.com/*",
+            "https://www.youtube.com/live_chat*"
+    ],
+        "js": ["content.js"]
+      }
+    ],
+    "action": {
+      "default_popup": "popup.html",
+      "default_icon": {
+        "32": "ChatVoiceIcon.png"
+      }
+    }
+  }
